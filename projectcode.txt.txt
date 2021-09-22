@@ -1,0 +1,40 @@
+#Password Checker OSBS technologies
+print("Your password should contain at least one lowercase and uppercase character,one number,punctuation sign and be at least 10 characters long ")
+password = input("Type your password")
+score = 0
+
+#Check the password for specific characters
+lowercase = False
+uppercase = False
+number = False
+punctuation = False
+for character in password:
+    if character in "abcdefghijklmnopqrstuvwxyz":
+        lowercase = True
+    elif character in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+           uppercase = True
+    elif character in "0123456789":
+        number = True
+    else:
+        punctuation = True
+
+if lowercase == True:
+        print("Your password contains at least one lowercase character.")
+if uppercase == True:
+        print("Your password contains at least one uppercase character.")
+if number == True:
+        print("Your password contains at least one number.")
+if punctuation == True:
+        print("Your password contains at least one punctuation sign.")
+if lowercase==True and uppercase==True:
+    score = score + 10
+if number==True and (lowercase==True or uppercase==True):
+    score = score + 10
+if punctuation==True:
+    score = score + 5
+
+if len(password)>=10:
+    score = score + 5
+    print("Your password is at least 10 characters long ")
+
+print("Score: " + str(score))
